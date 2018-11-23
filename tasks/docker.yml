@@ -8,17 +8,26 @@
     baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
     gpgkey: https://download.docker.com/linux/centos/gpg
     enabled: true
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when:
+    - ansible_distribution == 'CentOS'
+    - ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Add Ubuntu docker-ce repo.
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable" 
+    repo:
+      - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable" 
     state: present 
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   register: docker
 
 - name: Add Ubuntu docker-ce gpg key.
-  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && sudo apt-get update
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  args:
+    warn: false
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' and docker.changed
+
+- name: Run apt-get update.
+  shell: apt-get update
   args:
     warn: false
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' and docker.changed

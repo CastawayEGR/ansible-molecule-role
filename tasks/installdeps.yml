@@ -5,7 +5,9 @@
   yum:
     name: '*'
     state: latest
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: 
+    - ansible_distribution == 'CentOS'
+    - ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Update Ubuntu host packages.
   apt:
@@ -23,7 +25,9 @@
       - openssl-devel
       - libselinux-python
     state: present
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: 
+    - ansible_distribution == 'CentOS'
+    - ansible_distribution == 'Red Hat Enterprise Linux'
   register: yum
 
 - name: Install Ubuntu dpependencies needed for Molecule on host.
