@@ -5,7 +5,7 @@
   yum:
     name: '*'
     state: latest
-  when: 
+  when:
     - ansible_distribution == 'CentOS'
     - ansible_distribution == 'Red Hat Enterprise Linux'
 
@@ -25,7 +25,7 @@
       - openssl-devel
       - libselinux-python
     state: present
-  when: 
+  when:
     - ansible_distribution == 'CentOS'
     - ansible_distribution == 'Red Hat Enterprise Linux'
   register: yum

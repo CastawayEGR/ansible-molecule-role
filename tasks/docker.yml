@@ -14,23 +14,30 @@
 
 - name: Add Ubuntu docker-ce repo.
   apt_repository:
-    repo:
-      - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable" 
-    state: present 
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    repo: |-
+      "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable"
+    state: present
+  when: 
+    - ansible_distribution == 'Debian' 
+    - ansible_distribution == 'Ubuntu'
   register: docker
 
 - name: Add Ubuntu docker-ce gpg key.
-  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  shell: |-
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   args:
     warn: false
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' and docker.changed
+  when: 
+    - ansible_distribution == 'Debian' 
+    - ansible_distribution == 'Ubuntu'
 
 - name: Run apt-get update.
   shell: apt-get update
   args:
     warn: false
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' and docker.changed
+  when: 
+    - ansible_distribution == 'Debian' 
+    - ansible_distribution == 'Ubuntu'
 
 - name: Install docker-ce on host.
   package:
