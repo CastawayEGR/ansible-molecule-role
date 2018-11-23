@@ -23,10 +23,8 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Add Ubuntu docker-ce gpg key.
-  shell: |-
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  args:
-    warn: false
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install docker-ce on CentOS host.
