@@ -18,6 +18,7 @@ Example Playbook
 ----------------
 
     - hosts: molecule
+      remote_user: root
       roles:
          - ansible-molecule-role
 
