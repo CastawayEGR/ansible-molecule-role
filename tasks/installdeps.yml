@@ -34,9 +34,11 @@
     url: https://bootstrap.pypa.io/get-pip.py
     dest: /tmp/get-pip.py
     mode: 0777
+  register: pip_script
 
-- name: install_pip
+- name: Run pip install script.
   command: python /tmp/get-pip.py
+  when: pip_script.changed
 
 - name: pip install molecule and docker.
   pip:
