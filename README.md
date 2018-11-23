@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CastawayEGR/ansible-molecule-role.svg?branch=master)](https://travis-ci.org/CastawayEGR/ansible-molecule-role)
+
 Ansible Molecule Role
 =========
 
