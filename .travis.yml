@@ -8,6 +8,8 @@ services:
 env:
   - MOLECULE_OS=centos:7
   - MOLECULE_OS=ubuntu:xenial
+  - MOLECULE_OS=ubuntu:bionic
+  - MOLECULE_OS=ubuntu:trusty
 
 install:
   - pip install molecule docker
