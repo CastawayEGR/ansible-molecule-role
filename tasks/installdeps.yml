@@ -4,7 +4,6 @@
 - name: Update CentOS host packages.
   yum:
     name: '*'
-    state: latest
   when: >
     ansible_distribution == 'CentOS'
     or
