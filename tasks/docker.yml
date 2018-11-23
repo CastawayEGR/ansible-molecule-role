@@ -16,8 +16,8 @@
 - name: Add Ubuntu docker-ce repo.
   apt_repository:
     repo: >
-      deb [arch=amd64] https://download.docker.com/linux/ubuntu\
-      "{{ ansible_lsb.codename }}"\
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu
+      "{{ ansible_lsb.codename }}"
       stable
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

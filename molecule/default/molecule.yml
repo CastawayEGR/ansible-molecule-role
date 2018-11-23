@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: CentOS_7
+  - name: TestMachine
     image: "${MOLECULE_OS}"
     privileged: true
     command: /sbin/init

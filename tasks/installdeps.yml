@@ -1,14 +1,6 @@
 ---
 # tasks file for doing yum related tasks
 
-- name: Update CentOS host packages.
-  yum:
-    name: '*'
-  when: >
-    ansible_distribution == 'CentOS'
-    or
-    ansible_distribution == 'Red Hat Enterprise Linux'
-
 - name: Update Ubuntu host packages.
   apt:
     upgrade: dist
