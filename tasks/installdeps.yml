@@ -47,8 +47,14 @@
     url: https://bootstrap.pypa.io/get-pip.py
     dest: /tmp/get-pip.py
     mode: 0777
-  notify:
-    - run pip script
+
+- name: Install latest version of pip.
+  command: python /tmp/get-pip.py
+
+- name: Remove tmp pip install script.
+  file:
+    path: /tmp/get-pip.py
+    state: absent
 
 - name: pip install molecule and docker.
   pip:

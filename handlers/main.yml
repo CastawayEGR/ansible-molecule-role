@@ -1,5 +1,0 @@
----
-# handlers files for ansible-molecule-role
-
-- name: run pip script
-  command: python /tmp/get-pip.py
