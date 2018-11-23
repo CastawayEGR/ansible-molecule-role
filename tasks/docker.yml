@@ -25,6 +25,7 @@
 - name: Add Ubuntu docker-ce gpg key.
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
+    validate_certs: false
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install docker-ce on CentOS host.
