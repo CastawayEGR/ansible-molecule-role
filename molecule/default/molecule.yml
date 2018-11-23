@@ -9,6 +9,7 @@ platforms:
   - name: CentOS_7
     image: "${MOLECULE_OS}"
     privileged: true
+    command: /sbin/init
 provisioner:
   name: ansible
   lint:
