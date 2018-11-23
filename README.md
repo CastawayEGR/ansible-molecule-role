@@ -1,14 +1,14 @@
 Ansible Molecule Role
 =========
 [![Build Status](https://travis-ci.org/CastawayEGR/ansible-molecule-role.svg?branch=master)](https://travis-ci.org/CastawayEGR/ansible-molecule-role)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
-Ansible role to deploy Ansible Molecule on a CentOS 7 host for quick role testing.
+Ansible role to deploy Ansible Molecule on a Debian/RHEL based hosts for quick role testing.
 
 Requirements
 ------------
 
-Host that molecule will be deployed on is running CentOS 7.
+Host that molecule will be deployed on is running a Debian/RHEL based OS.
 
 
 Dependencies
@@ -20,7 +20,7 @@ Example Playbook
 ----------------
 
     - hosts: molecule
-      remote_user: root
+      remote_user: castawayegr
       roles:
          - ansible-molecule-role
 
