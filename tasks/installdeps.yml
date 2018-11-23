@@ -24,6 +24,7 @@
       - gcc
       - openssl-devel
       - libselinux-python
+      - python-setuptools
     state: present
   when: >
     ansible_distribution == 'CentOS'
@@ -39,6 +40,7 @@
       - software-properties-common
       - gcc
       - python-dev
+      - python-setuptools
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
