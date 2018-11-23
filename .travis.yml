@@ -1,0 +1,15 @@
+---
+sudo: required
+language: python
+
+services:
+  - docker
+
+env:
+  - MOLECULE_OS=centos:7
+
+install:
+  - pip install molecule docker
+
+script:
+  - molecule test

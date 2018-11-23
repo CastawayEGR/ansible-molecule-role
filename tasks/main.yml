@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-molecule-role
+
+# docker-in-docker hack/fix for travis ci
+- name: Set ansible_user if in docker environment.
+  set_fact: ansible_user=root
+  when: ansible_connection == "docker"
+
+- include: installdeps.yml
+- include: docker.yml

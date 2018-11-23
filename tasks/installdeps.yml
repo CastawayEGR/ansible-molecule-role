@@ -1,0 +1,29 @@
+---
+# tasks file for doing yum related tasks
+
+- name: Yum update host.
+  yum:
+    name: '*'
+
+- name: Install epel-release repo on host.
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install dependencies needed for Molecule on host.
+  yum:
+    name:
+      - docker
+      - python-docker-py
+      - git
+      - python-devel
+      - gcc
+      - openssl-devel
+      - libselinux-python
+      - python-pip
+    state: present
+
+- name: pip install molecule
+  pip:
+    name:
+      - molecule

@@ -1,0 +1,18 @@
+---
+# tasks files for docker related tasks
+
+- name: Add usergroup for docker.
+  group: name=docker state=present
+
+- name: Add user to docker usergroup.
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: true
+
+- name: Enable docker to start on boot.
+  service: name=docker enabled=true
+
+- name: Start docker service.
+  service: name=docker state=started
+  when: ansible_connection != "docker"
