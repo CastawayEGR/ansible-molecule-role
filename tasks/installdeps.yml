@@ -34,7 +34,7 @@
     url: https://bootstrap.pypa.io/get-pip.py
     dest: /tmp/get-pip.py
     mode: 0777
-  notify: 
+  notify:
     - run pip script
 
 - name: pip install molecule and docker.
