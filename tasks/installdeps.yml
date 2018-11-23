@@ -1,11 +1,6 @@
 ---
 # tasks file for doing yum related tasks
 
-- name: Update Ubuntu host packages.
-  apt:
-    upgrade: dist
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
 - name: Install CentOS dependencies needed for Molecule on host.
   yum:
     name:

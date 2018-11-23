@@ -12,7 +12,7 @@ def test_package(host, pkg):
     assert package.is_installed
 
 
-@pytest.mark.parametrize('svc', ['docker-ce'])
+@pytest.mark.parametrize('svc', ['docker-'])
 def test_service(host, svc):
     service = host.service(svc)
     assert service.is_enabled
