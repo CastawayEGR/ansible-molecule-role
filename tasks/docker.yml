@@ -12,7 +12,6 @@
 
 - name: Enable docker to start on boot.
   service: name=docker enabled=true
-  when: ansible_connection != "docker"
 
 - name: Start docker service.
   service: name=docker state=started
