@@ -1,19 +1,6 @@
 ---
 # tasks file for doing yum related tasks
 
-- name: Update CentOS host packages.
-  yum:
-    name: '*'
-    state: latest
-  when:
-    - ansible_distribution == 'CentOS'
-    - ansible_distribution == 'Red Hat Enterprise Linux'
-
-- name: Update Ubuntu host packages.
-  apt:
-    upgrade: dist
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
 - name: Install CentOS dependencies needed for Molecule on host.
   yum:
     name:
@@ -25,10 +12,10 @@
       - openssl-devel
       - libselinux-python
     state: present
-  when:
-    - ansible_distribution == 'CentOS'
-    - ansible_distribution == 'Red Hat Enterprise Linux'
-  register: yum
+  when: >
+    ansible_distribution == 'CentOS'
+    or
+    ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Install Ubuntu dpependencies needed for Molecule on host.
   apt:
@@ -41,24 +28,15 @@
       - python-dev
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  register: apt
 
-- name: Get latest pip version to install.
+- name: Download pip install script.
   get_url:
     url: https://bootstrap.pypa.io/get-pip.py
     dest: /tmp/get-pip.py
     mode: 0777
-  when: apt.changed or yum.changed
 
-- name: Install latest pip version.
+- name: install_pip
   command: python /tmp/get-pip.py
-  when: apt.changed or yum.changed
-
-- name: Remove pip script from tmp directory.
-  file:
-    path: /tmp/get-pip.py
-    state: absent
-  when: apt.changed or yum.changed
 
 - name: pip install molecule and docker.
   pip:
