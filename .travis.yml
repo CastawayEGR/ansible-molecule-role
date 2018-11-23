@@ -1,4 +1,5 @@
 ---
+sudo: required
 language: python
 
 services:
@@ -6,6 +7,7 @@ services:
 
 env:
   - MOLECULE_OS=centos:7
+  - MOLECULE_OS=ubuntu:xenial
 
 install:
   - pip install molecule docker
