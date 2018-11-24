@@ -6,10 +6,10 @@ services:
   - docker
 
 env:
-  - MOLECULE_OS=centos:latest
-  - MOLECULE_OS=ubuntu:latest
-  - MOLECULE_OS=debian:latest
-  - MOLECULE_OS=fedora:latest
+  - MOLECULE_OS=centos:7
+  - MOLECULE_OS=ubuntu:xenial
+  - MOLECULE_OS=debian:stretch
+  - MOLECULE_OS=fedora:29
 
 install:
   - pip install molecule docker
