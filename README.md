@@ -3,12 +3,12 @@ Ansible Molecule Role
 [![Build Status](https://travis-ci.org/CastawayEGR/ansible-molecule-role.svg?branch=master)](https://travis-ci.org/CastawayEGR/ansible-molecule-role)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-Ansible role to deploy Ansible Molecule on a Debian/RHEL based hosts for quick role testing.
+Ansible role to deploy Ansible Molecule on a Debian/Fedora/RHEL based hosts for quick role testing.
 
 Requirements
 ------------
 
-Host that molecule will be deployed on is running a Debian/RHEL based OS.
+Host that molecule will be deployed on is running a Debian/Fedora/RHEL based OS.
 
 
 Dependencies

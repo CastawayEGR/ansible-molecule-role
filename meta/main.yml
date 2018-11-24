@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: CastawayEGR
-  description: Ansible Molecule role for CentOS 7
+  description: Ansible Molecule role for Debian, Fedora, and RHEL based OSs
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
   platforms:
