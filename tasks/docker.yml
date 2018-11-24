@@ -42,7 +42,7 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install docker-ce on CentOS host.
-  package:
+  yum:
     name: docker-ce
   when: >
     ansible_distribution == 'CentOS'
