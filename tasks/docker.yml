@@ -38,18 +38,15 @@
     url: https://download.docker.com/linux/ubuntu/gpg
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Install docker-ce on Fedora host.
-  dnf:
-    name: docker-ce
-  when: ansible_distribution == 'Fedora'
-
 - name: Install docker-ce on CentOS host.
-  yum:
+  package:
     name: docker-ce
   when: >
     ansible_distribution == 'CentOS'
     or
     ansible_distribution == 'Red Hat Enterprise Linux'
+    or
+    ansible_distribution == 'Fedora'
 
 - name: Install docker-ce on Ubuntu host.
   apt:
