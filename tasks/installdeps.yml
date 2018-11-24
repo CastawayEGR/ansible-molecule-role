@@ -28,11 +28,12 @@
       - gcc
       - python-dev
       - python-setuptools
+      - apt-utils
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install Fedora dependencies needed for Molecule on host.
-  yum:
+  dnf:
     name:
       - git
       - device-mapper-persistent-data
