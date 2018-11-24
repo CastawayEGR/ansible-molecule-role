@@ -18,7 +18,7 @@
     name: docker-ce-stable
     description: docker-ce stable repo
     baseurl: >
-      https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+      https://download.docker.com/linux/fedora/28/$basearch/stable
     gpgkey: https://download.docker.com/linux/fedora/gpg
     enabled: true
   when: ansible_distribution == 'Fedora'
@@ -40,7 +40,6 @@
 - name: Install docker-ce on Fedora host.
   dnf:
     name: docker-ce
-    enablerepo: docker-ce-stable
   when: ansible_distribution == 'Fedora'
 
 - name: Install docker-ce on CentOS host.
