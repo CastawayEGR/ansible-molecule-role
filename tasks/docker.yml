@@ -23,6 +23,10 @@
     enabled: true
   when: ansible_distribution == 'Fedora'
 
+- name: Enable Fedora docker-ce repo.
+  command: dnf config-manager --set-enabled docker-ce-stable
+  when: ansible_distribution == 'Fedora'
+
 - name: Add Ubuntu docker-ce repo.
   apt_repository:
     repo: >
