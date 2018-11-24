@@ -8,7 +8,7 @@ services:
 env:
   - MOLECULE_OS=centos:7
   - MOLECULE_OS=ubuntu:xenial
-  - MOLECULE_OS=debian:stretch
+  - MOLECULE_OS=debian:jessie
   - MOLECULE_OS=fedora:29
 
 install:
