@@ -31,6 +31,20 @@
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+- name: Install Fedora dependencies needed for Molecule on host.
+  yum:
+    name:
+      - git
+      - device-mapper-persistent-data
+      - lvm2
+      - python-devel
+      - gcc
+      - openssl-devel
+      - libselinux-python
+      - python-setuptools
+    state: present
+  when: ansible_distribution == 'Fedora'
+
 - name: Install latest version of pip.
   easy_install:
     name: pip
