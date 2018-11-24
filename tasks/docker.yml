@@ -17,7 +17,8 @@
   yum_repository:
     name: docker-ce-stable
     description: docker-ce stable repo
-    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+    baseurl: >
+      https://download.docker.com/linux/fedora/$releasever/$basearch/stable
     gpgkey: https://download.docker.com/linux/fedora/gpg
     enabled: true
   when: ansible_distribution == 'Fedora'
