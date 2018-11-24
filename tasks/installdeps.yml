@@ -18,7 +18,7 @@
     or
     ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Install Ubuntu dpependencies needed for Molecule on host.
+- name: Install Ubuntu dependencies needed for Molecule on host.
   apt:
     name:
       - apt-transport-https
