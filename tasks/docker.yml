@@ -13,7 +13,7 @@
     or
     ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Add CentOS docker-ce repo.
+- name: Add Fedora docker-ce repo.
   yum_repository:
     name: docker-ce-stable
     description: docker-ce stable repo
@@ -36,6 +36,12 @@
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install docker-ce on CentOS host.
+  dnf:
+    name: docker-ce
+    enablerepo: docker-ce-stable
+  when: ansible_distribution == 'Fedora'
 
 - name: Install docker-ce on CentOS host.
   yum:
