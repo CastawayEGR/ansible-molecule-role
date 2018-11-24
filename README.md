@@ -2,8 +2,8 @@ Ansible Molecule Role
 =========
 [![Build Status](https://travis-ci.org/CastawayEGR/ansible-molecule-role.svg?branch=master)](https://travis-ci.org/CastawayEGR/ansible-molecule-role)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
-![GitHub repo size in bytes](https://img.shields.io/github/repo-size/badges/shields.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/badges/shields.svg)](https://github.com/CastawayEGR/ansible-molecule-role)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/CastawayEGR/ansible-molecule-role)
 
 
 Ansible role to deploy Ansible Molecule on a Debian/Fedora/RHEL based hosts for quick role testing.
